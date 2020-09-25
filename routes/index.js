@@ -1,0 +1,33 @@
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  let products=[
+    {
+      name:"IPhone 6",
+      categorg:"mobile",
+      description:"this is new mobile",
+      image:"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.sellbrite.com%2Fproduction%2F23431%2FIPH616GBBLACKUN_B__B%2F34bbaf16-f190-560d-bc50-9f5985b93f51.jpg&f=1&nofb=1"   
+    },
+    {
+      name:"IPhone 6",
+      categorg:"mobile",
+      description:"this is new mobile",
+      image:"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.sellbrite.com%2Fproduction%2F23431%2FIPH616GBBLACKUN_B__B%2F34bbaf16-f190-560d-bc50-9f5985b93f51.jpg&f=1&nofb=1"   
+    },{
+      name:"IPhone 6",
+      categorg:"mobile",
+      description:"this is new mobile",
+      image:"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.sellbrite.com%2Fproduction%2F23431%2FIPH616GBBLACKUN_B__B%2F34bbaf16-f190-560d-bc50-9f5985b93f51.jpg&f=1&nofb=1"   
+    },{
+      name:"IPhone 6",
+      categorg:"mobile",
+      description:"this is new mobile",
+      image:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.3ZAqOb_anmvG5GJuVHGVcwHaE7%26pid%3DApi&f=1"   
+    }
+  ]
+  res.render('index', {products,admin:false});
+});
+
+module.exports = router;
