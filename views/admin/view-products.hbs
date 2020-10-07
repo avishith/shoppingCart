@@ -39,6 +39,10 @@
               </label>
             </div>
           </td>
+          <td>
+             <a href="/admin/edit-product/{{this.id}}" class="btn btn-primary">Edit</a>
+            <a href="/admin/delete-product/{{this._id}}" class="btn btn-danger" onclick=" return confirm('are you wants to delete{{this.Name}}')">Delete</a>
+          </td>
 
         </tr>
         {{/each}}
