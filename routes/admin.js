@@ -24,7 +24,7 @@ router.post("/add-products", function (req, res, next) {
     
     image.mv('./public/product-images/'+id+'.jpg',(err,done)=>{
        if (!err){
-         console.log('not error image added')
+         console.log(' image added')
          res.render("admin/add-products")
        }else{
          console.log(err+'error')
@@ -47,5 +47,34 @@ router.get('/delete-product/:id',(req,res)=>{
 
 
 })
+router.get('/edit-product/:id',async(req,res)=>{
+   let products =await product_helpers.getDetails(req.params.id)
+  //  console.log(product)  
+   
+   res.render('admin/update-product', { admin: true, products })
+})
 
+router.post("/edit-product/:id", function (req, res, next) {
+  let proId=req.params.id
+  let doc=req.body
+  product_helpers.updateDetails(proId,doc).then(()=>{
+    res.redirect('/admin/')
+    if( req.files.uploaded_image){
+      console.log("image is there")
+    }else{
+      console.log("no image")
+    }
+    image=req.files.uploaded_image
+    
+    image.mv('./public/product-images/'+proId+'.jpg',(err,done)=>{
+       if (!err){
+         console.log(' image added')
+         res.render("admin/add-products")
+       }else{
+         console.log(err+'error')
+       }
+    })
+  })
+})
+  
 module.exports = router;
